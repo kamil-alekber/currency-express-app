@@ -1,0 +1,13 @@
+{
+  "verbose": false,
+  "ignore": ["data/*", "dist/views"],
+  "watch": ["./dist", "src/views"],
+  "delay": "2000",
+  "execMap": {
+    "js": "node dist/index.js"
+  },
+  "ext": "js",
+  "env": {
+    "PORT": 5000
+  }
+}
