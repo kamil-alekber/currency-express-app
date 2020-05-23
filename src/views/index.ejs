@@ -7,7 +7,12 @@
   </head>
   <body>
     <h1>currency app for your family and friends</h1>
-  
+  <form action="/" method="POST">
+    <input type="hidden" name="_csrf" value="<%= csrfToken%>">
+    <label for="name">check scrf</label>
+    <input id="name" type="text" name="name" value="default"/>
+    <button type="submit">submit the form</button>
+  </form>
   <p class="<% if(isFresh){%>
     fresh
   <%} else {%>
@@ -19,14 +24,5 @@
       <li class="card"><%= currency.name %> - <%= currency.value%> KZT</li>
       <% }); %>
     </ul>
-
-  <script>
-    function func1(){
-      console.log("I am in the click handler 1!"); 
-    }
-    function func2(){
-      console.log("I am in the click handler 2!"); 
-    }
-  </script>
   </body>
 </html>

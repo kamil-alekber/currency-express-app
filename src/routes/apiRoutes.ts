@@ -11,8 +11,10 @@ router.route("/").get((req, res) => {
 });
 
 router.route("/currency").get(async (req, res) => {
+  const availableDays = fs.readdirSync(path.resolve(__dirname, "../../data"));
+
   const data = await fs.promises.readFile(
-    path.join(__dirname, `../../data/${today}.json`),
+    path.join(__dirname, `../../data/${availableDays.pop()}`),
     { encoding: "utf-8" }
   );
 

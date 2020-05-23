@@ -1,0 +1,24 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="refresh"
+      content="<%= redirectTime %>;url=<%= redirectUrl%>"
+    />
+    <link rel="stylesheet" href="public/error.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section class="error">
+      <h1>404 page</h1>
+      <p>
+        <%= message %>
+      </p>
+      <small
+        >we are apologizing for the inconvinience and redirecting in <%=
+        redirectTime%> seconds...</small
+      >
+    </section>
+  </body>
+</html>

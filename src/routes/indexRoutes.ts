@@ -1,17 +1,13 @@
 import request from "request-promise-native";
 import express from "express";
-import { runDataQuery, today } from "../helpers/getCurrencyData";
+import { runDataQuery } from "../helpers/getCurrencyData";
 
 const router = express.Router();
 
 router
   .route("/")
   .get(async (req, res) => {
-    console.log("req", req.query);
-    if (req?.query?.refresh) {
-      const res = await runDataQuery();
-      console.log(res);
-    }
+    if (req?.query?.refresh) await runDataQuery();
 
     const data = await request.get("http://localhost:5000/api/currency");
     const parsedData = JSON.parse(data);
@@ -19,10 +15,15 @@ router
     const isFresh =
       new Date(parsedData.date).toDateString() === new Date().toDateString();
 
-    res.render("index", { data: parsedData, isFresh });
+    res.render("index", {
+      data: parsedData,
+      isFresh,
+      csrfToken: req.csrfToken(),
+    });
   })
   .post((req, res) => {
-    console.log(req.body.username);
+    const formData = Object.assign({}, req.body);
+    console.log("[...] Data:", formData);
     res.redirect("/");
   });
 
