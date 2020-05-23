@@ -1,22 +1,25 @@
 import express from "express";
 import path from "path";
-import routes from "./routes";
+import { routes } from "./routes";
 
 const app = express();
-// from api calls like fetch('/api/', {id: '123'})
-// app.use(express.json());
+
 app.set("views", path.resolve(__dirname, "views"));
 app.set("view engine", "ejs");
-// when send from browser
+// parses json body from api calls like fetch('/api/', {id: '123'})
+app.use(express.json());
+// parses url encoded body when sent from browser
 app.use(express.urlencoded({ extended: false }));
-app.use("/public", express.static(__dirname + "/public"));
+app.use("/public", express.static(path.join(__dirname, "public")));
+// all app routes
 app.use(routes);
-const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
+const PORT = Number(process.env.PORT) || 3000;
+const HOST = process.env.HOST || "localhost";
+const PROTO = process.env.TYPE === "prod" ? "https" : "http";
+
+app.listen(PORT, HOST, () => {
   console.warn(
-    `listening on port ${PORT}, client OS ${
-      process.platform
-    }, cwd: ${process.cwd()}`
+    `[+] listening on => ${PROTO}://${HOST}:${PORT}\n[+] client OS => ${process.platform}\n[+] entryfile => ${__filename}`
   );
 });

@@ -8,6 +8,8 @@
   },
   "ext": "js",
   "env": {
-    "PORT": 5000
+    "PORT": 5000,
+    "HOST": "localhost",
+    "TYPE": "dev"
   }
 }
