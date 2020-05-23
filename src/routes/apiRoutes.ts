@@ -1,6 +1,7 @@
 import { Router } from "express";
 import fs from "fs";
 import path from "path";
+import { today } from "../helpers/getCurrencyData";
 
 const router = Router();
 
@@ -11,7 +12,7 @@ router.route("/").get((req, res) => {
 
 router.route("/currency").get(async (req, res) => {
   const data = await fs.promises.readFile(
-    path.join(__dirname, "../../data/5-22-2020.json"),
+    path.join(__dirname, `../../data/${today}.json`),
     { encoding: "utf-8" }
   );
 

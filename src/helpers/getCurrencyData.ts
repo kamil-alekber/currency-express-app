@@ -5,7 +5,7 @@ import path from "path";
 type CurrencyData = { name?: string; relation?: string; value?: string };
 
 const today = new Date().toLocaleDateString("ru").replace(/\//g, "-");
-const files = fs.readdirSync(path.resolve(__dirname, "../data"));
+const files = fs.readdirSync(path.resolve(__dirname, "../../data"));
 
 async function getCurrencyData() {
   // check if the data is already loaded for today
@@ -58,6 +58,7 @@ async function getCurrencyData() {
 
     return {
       header,
+      date: new Date().toISOString(),
       length: data.length,
       data,
     };
@@ -65,18 +66,23 @@ async function getCurrencyData() {
   return tableData;
 }
 
-getCurrencyData()
-  .then(async (currecnyData) => {
-    if (!currecnyData) {
+const runDataQuery = async () => {
+  try {
+    const data = await getCurrencyData();
+    if (!data) {
       const text = `[+] Already downloaded & wrote currency data for today.\n[+] Check something like '${today}.json' inside of the 'data/' folder on your local drive or come back tomorrow`;
       console.warn(text);
       return text;
     }
 
-    const filePath = path.resolve(__dirname, `../data/${today}.json`);
-    await fs.promises.writeFile(filePath, JSON.stringify(currecnyData), {
+    const filePath = path.resolve(__dirname, `../../data/${today}.json`);
+    await fs.promises.writeFile(filePath, JSON.stringify(data), {
       flag: "w",
       encoding: "utf-8",
     });
-  })
-  .catch(console.error);
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+export { runDataQuery, today };

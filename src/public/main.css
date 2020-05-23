@@ -11,6 +11,7 @@ ul {
 li {
   padding: 10px;
   list-style: none;
+  border-radius: 10px;
 }
 
 .card {
@@ -23,4 +24,11 @@ li {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 10px;
+}
+
+.fresh {
+  color: rgb(89, 151, 89);
+}
+.old {
+  color: rgb(99, 99, 99);
 }

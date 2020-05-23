@@ -7,11 +7,26 @@
   </head>
   <body>
     <h1>currency app for your family and friends</h1>
-    <p><b><%= data.header%><b></p>
+  
+  <p class="<% if(isFresh){%>
+    fresh
+  <%} else {%>
+    old
+  <%}; %>"><b > <%= data.header%><b></p>
+    <button><a href="/?refresh=true">refresh</a></button>
     <ul class="container">
      <% data.data.forEach((currency)=> { %>
       <li class="card"><%= currency.name %> - <%= currency.value%> KZT</li>
       <% }); %>
     </ul>
+
+  <script>
+    function func1(){
+      console.log("I am in the click handler 1!"); 
+    }
+    function func2(){
+      console.log("I am in the click handler 2!"); 
+    }
+  </script>
   </body>
 </html>
