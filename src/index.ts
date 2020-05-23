@@ -35,6 +35,10 @@ app.use(errorHandler);
 
 app.listen(PORT, HOST, () => {
   console.warn(
-    `[+] listening on => ${PROTO}://${HOST}:${PORT}\n[+] client OS => ${process.platform}\n[+] entryfile => ${__filename}`
+    "\x1b[32m%s\x1b[0m",
+    "[+] listening on =>",
+    `${PROTO}://${HOST}:${PORT}`
   );
+  console.warn("\x1b[32m%s\x1b[0m", "[+] client OS =>", `${process.platform}`);
+  console.warn("\x1b[32m%s\x1b[0m", "[+] entryfile =>", `${__filename}`);
 });
