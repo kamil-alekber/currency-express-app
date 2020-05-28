@@ -5,6 +5,8 @@ import scrf from "csurf";
 import cookieParser from "cookie-parser";
 import { errorHandler } from "./helpers/errorHandler";
 import morgan from "morgan";
+import graphqlHTTP from "express-graphql";
+import { schema } from "./graphql/index";
 
 const app = express();
 
@@ -20,7 +22,14 @@ app.use(morgan("common"));
 
 //HINT: // mount api before csrf to disable scrf
 // app.use('/api', api)
-
+app.use(
+  "/graphql",
+  graphqlHTTP({
+    pretty: true,
+    graphiql: true,
+    schema,
+  })
+);
 // enable scrf check for all routes and all methods except GET, HEAD, OPTION
 app.use(scrf({ cookie: { httpOnly: true, secure: false, maxAge: 3600 } }));
 
