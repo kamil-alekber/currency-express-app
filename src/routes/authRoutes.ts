@@ -79,4 +79,8 @@ router
     }
   });
 
+router.route("/logout").get((req, res) => {
+  res.clearCookie("jwt");
+  res.redirect("/");
+});
 export { router as authRoutes };

@@ -8,10 +8,22 @@
   <body>
     <% if(user) {%>
     <p> <%= user.email %> </p>
+    <a href="auth/logout">Logout</a>
     <%}else {%>
       <a href="/auth/login">Login</a>
       <a href="/auth/register">Register</a>
     <%};%>
+
+    <% if(!consent){ %>
+      <p>did not consent</p>
+      <a href="/?consent=true">
+        <p>we are using cookies so better consent or else get out</p>
+      </a>
+
+    <% } else {%>
+      <p>consented</p>
+    <% }; %>
+    
     <h1>currency app for your family and friends</h1>
   <form action="/auth/login" method="POST">
     <input type="hidden" name="_csrf" value="<%= csrfToken%>">
