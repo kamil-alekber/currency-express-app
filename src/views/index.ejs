@@ -8,6 +8,9 @@
   <body>
     <% if(user) {%>
     <p> <%= user.email %> </p>
+    <%}else {%>
+      <a href="/auth/login">Login</a>
+      <a href="/auth/register">Register</a>
     <%};%>
     <h1>currency app for your family and friends</h1>
   <form action="/auth/login" method="POST">

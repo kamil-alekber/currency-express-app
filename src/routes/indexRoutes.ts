@@ -15,8 +15,16 @@ router
 
     const isFresh =
       new Date(parsedData.date).toDateString() === new Date().toDateString();
-    const user =
-      req?.cookies?.["jwt"] && jwt.decode(req.cookies["jwt"], { json: false });
+
+    let user;
+    try {
+      user =
+        req?.cookies?.["jwt"] &&
+        jwt.verify(req.cookies["jwt"], process.env.TOKEN_SECRET as string);
+    } catch (error) {
+      console.log("\x1b[31m%s\x1b[0m", "[x] Error Type:", error.name);
+      console.error("\x1b[31m%s\x1b[0m", "[x] Error Msg:", error.message);
+    }
 
     res.render("index", {
       data: parsedData,
