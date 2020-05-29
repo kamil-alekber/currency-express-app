@@ -1,6 +1,7 @@
 import request from "request-promise-native";
 import express from "express";
 import { runDataQuery } from "../helpers/getCurrencyData";
+import jwt from "jsonwebtoken";
 
 const router = express.Router();
 
@@ -14,11 +15,14 @@ router
 
     const isFresh =
       new Date(parsedData.date).toDateString() === new Date().toDateString();
+    const user =
+      req?.cookies?.["jwt"] && jwt.decode(req.cookies["jwt"], { json: false });
 
     res.render("index", {
       data: parsedData,
       isFresh,
       csrfToken: req.csrfToken(),
+      user,
     });
   })
   .post((req, res) => {

@@ -1,0 +1,14 @@
+[
+  {
+    "users": [
+      {
+        "email": "Shaun",
+        "password": "$2b$10$XS1AZueYuyhnt3Yfm2Xhk.hqQ78U9Hvnr/hEosMyIeQwtWlSCxsdq"
+      },
+      {
+        "email": "kamil",
+        "password": "$2b$10$dQVjB6s5hbxYU5644HR7cebu3sE.95g5XZZVKDxUvj9jIlg4yPmXe"
+      }
+    ]
+  }
+]

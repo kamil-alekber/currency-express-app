@@ -25,6 +25,7 @@
     "dev": "yarn install && yarn clear && tsc && yarn copy:views && yarn copy:assets && concurrently --names watch-typescript,watch-nodemon,copy-views -c grey,cyan,magenta \"tsc --watch\" \"npm:watch-node\" \"npm:watch-assets\""
   },
   "devDependencies": {
+    "@types/bcrypt": "^3.0.0",
     "@types/cookie-parser": "1.4.2",
     "@types/csurf": "1.9.36",
     "@types/express": "4.17.6",

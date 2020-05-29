@@ -1,0 +1,23 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login</title>
+  </head>
+  <body>
+    <h1>login yourself</h1>
+    
+    <% if(message) {%>
+      <p><%= message%></p>
+    <%}; %>
+    </p>
+    <form action="/auth/login" method="POST">
+      <input type="hidden" name="_csrf" value="<%= _csrf%>" />
+      <label for="email">email</label>
+      <input id="email" name="email" value="Shaun" type="text" />
+      <label for="password">password</label>
+      <input id="password" name="password" value="test1234" type="text" />
+      <button>submit</button>
+    </form>
+  </body>
+</html>

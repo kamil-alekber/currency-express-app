@@ -1,4 +1,4 @@
-import express, { Request } from "express";
+import express from "express";
 import path from "path";
 import { routes } from "./routes";
 import scrf from "csurf";
@@ -8,8 +8,6 @@ import morgan from "morgan";
 import graphqlHTTP from "express-graphql";
 import { schema } from "./graphql/index";
 import { passportInit } from "./helpers/passport";
-
-// new JwtStrategy({ jwtFromRequest: cookieExtractor, });
 
 // generate tokem secret with crypto module
 // import crypto from "crypto";
