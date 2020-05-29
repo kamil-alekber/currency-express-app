@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request } from "express";
 import path from "path";
 import { routes } from "./routes";
 import scrf from "csurf";
@@ -7,6 +7,13 @@ import { errorHandler } from "./helpers/errorHandler";
 import morgan from "morgan";
 import graphqlHTTP from "express-graphql";
 import { schema } from "./graphql/index";
+import { passportInit } from "./helpers/passport";
+
+// new JwtStrategy({ jwtFromRequest: cookieExtractor, });
+
+// generate tokem secret with crypto module
+// import crypto from "crypto";
+// const tokenSecret = crypto.randomBytes(64).toString("hex");
 
 const app = express();
 
@@ -16,6 +23,7 @@ app.set("view engine", "ejs");
 app.use(express.json());
 // parses url encoded body when sent from browser
 app.use(express.urlencoded({ extended: false }));
+passportInit(app);
 app.use("/public", express.static(path.join(__dirname, "public")));
 app.use(cookieParser());
 app.use(morgan("common"));

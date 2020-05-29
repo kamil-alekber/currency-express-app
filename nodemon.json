@@ -10,6 +10,7 @@
   "env": {
     "PORT": 5000,
     "HOST": "localhost",
-    "TYPE": "dev"
+    "TYPE": "dev",
+    "TOKEN_SECRET": "d54bdd7325a099d3d03edec388a660c41aefbdaadb8320b7d935481b7247376f5f19335a88786c3caa00b7d2bf3efcba01d02a4e581b423cc6e0fe90d995af39"
   }
 }
