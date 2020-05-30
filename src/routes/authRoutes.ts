@@ -52,8 +52,7 @@ router
 
         console.warn(
           "\x1b[32m%s\x1b[0m",
-          `[+] Login... generating access token for [${user.email}]:`,
-          jwtAccessToken
+          `[+] Login... generating access & refresh tokens for [${user.email}]`
         );
         res.cookie("jwt-acc", jwtAccessToken, {
           httpOnly: true,
@@ -190,6 +189,10 @@ router.route("/token").get((req, res) => {
 
 /** LOGOUT **/
 router.route("/logout").get((req, res) => {
+  console.warn(
+    "\x1b[33m%s\x1b[0m",
+    "Logout... clearing both jwt-ref & jwt-acc cookies"
+  );
   res.clearCookie("jwt-ref");
   res.clearCookie("jwt-acc");
   res.redirect("/");

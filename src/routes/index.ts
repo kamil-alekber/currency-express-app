@@ -4,6 +4,7 @@ import { indexRoutes } from "./indexRoutes";
 import { authRoutes } from "./authRoutes";
 import passport from "passport";
 import { profileRoutes } from "./profileRoutes";
+// import cors from "cors";
 
 const router = express.Router();
 

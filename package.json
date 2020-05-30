@@ -22,13 +22,17 @@
     "copy:assets": "cp -rf src/public/ dist",
     "copy:views": "cp -rf src/views/ dist",
     "watch:assets": "nodemon --no-colors -q -e ejs,css -w src/views -w src/public -x 'yarn copy:views && yarn copy:assets'",
-    "dev": "yarn install && yarn clear && tsc && yarn copy:views && yarn copy:assets && concurrently --names watch-typescript,watch-nodemon,copy-views -c grey,cyan,magenta \"tsc --watch\" \"npm:watch:node\" \"npm:watch:assets\" \"npm:watch:another-server \"",
+    "dev": "yarn install && yarn clear && tsc && yarn copy:views && yarn copy:assets && concurrently --names watch-typescript,watch-nodemon,copy-views -c grey,cyan,magenta \"tsc --watch\" \"npm:watch:node\" \"npm:watch:assets\"",
     "watch:another-server": "nodemon --config another.nodemon.json",
+    "watch:another-server-views": "nodemon --no-colors -q -e ejs -w src/another/views -x 'yarn copy:another-server-views'",
+    "copy:another-server-views": "cp -rf src/another/views dist/another",
     "update": "yarn upgrade-interactive"
   },
   "devDependencies": {
+    "@angular/cli": "^9.1.7",
     "@types/bcrypt": "^3.0.0",
     "@types/cookie-parser": "1.4.2",
+    "@types/cors": "^2.8.6",
     "@types/csurf": "1.9.36",
     "@types/express": "4.17.6",
     "@types/express-graphql": "0.9.0",
