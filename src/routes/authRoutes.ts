@@ -178,7 +178,13 @@ router.route("/token").get((req, res) => {
       res.redirect("/");
     }
   } catch (error) {
-    console.log("[x] Can't get new access token:", error);
+    console.error(
+      "\x1b[31m%s\x1b[0m",
+      "[x] Can not generate new access & refresh tokens. Reason:",
+      error
+    );
+    console.warn("\x1b[33m%s\x1b[0m", "Redirecting to /auth/login...");
+    return res.redirect("/auth/login");
   }
 });
 
