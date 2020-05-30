@@ -34,7 +34,9 @@ router
       });
     }
     if (!req.cookies.locale) {
-      res.cookie("locale", new Date().toLocaleDateString("ru"));
+      res.cookie("locale", new Date().toLocaleDateString("ru"), {
+        maxAge: 1000 * 60 * 60 * 24 * 365,
+      });
     }
     res.render("index", {
       data: parsedData,

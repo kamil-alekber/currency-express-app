@@ -17,12 +17,14 @@
   "description": "Express app that uses under its belt csrf, morgan and other middlewares",
   "license": "MIT",
   "scripts": {
-    "watch-node": "nodemon  --config nodemon.json",
+    "watch:node": "nodemon  --config nodemon.json",
     "clear": "rm -rf dist/",
     "copy:assets": "cp -rf src/public/ dist",
     "copy:views": "cp -rf src/views/ dist",
-    "watch-assets": "nodemon --no-colors -q -e ejs,css -w src/views -w src/public -x 'yarn copy:views && yarn copy:assets'",
-    "dev": "yarn install && yarn clear && tsc && yarn copy:views && yarn copy:assets && concurrently --names watch-typescript,watch-nodemon,copy-views -c grey,cyan,magenta \"tsc --watch\" \"npm:watch-node\" \"npm:watch-assets\""
+    "watch:assets": "nodemon --no-colors -q -e ejs,css -w src/views -w src/public -x 'yarn copy:views && yarn copy:assets'",
+    "dev": "yarn install && yarn clear && tsc && yarn copy:views && yarn copy:assets && concurrently --names watch-typescript,watch-nodemon,copy-views -c grey,cyan,magenta \"tsc --watch\" \"npm:watch:node\" \"npm:watch:assets\" \"npm:watch:another-server \"",
+    "watch:another-server": "nodemon --config another.nodemon.json",
+    "update": "yarn upgrade-interactive"
   },
   "devDependencies": {
     "@types/bcrypt": "^3.0.0",
@@ -44,6 +46,7 @@
   "dependencies": {
     "bcrypt": "4.0.1",
     "cookie-parser": "1.4.5",
+    "cors": "^2.8.5",
     "csurf": "1.11.0",
     "ejs": "3.1.3",
     "express": "4.17.1",

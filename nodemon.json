@@ -1,6 +1,6 @@
 {
   "verbose": false,
-  "ignore": ["data/*", "dist/views"],
+  "ignore": ["data/*", "dist/views", "dist/another"],
   "watch": ["./dist"],
   "delay": "2000",
   "execMap": {

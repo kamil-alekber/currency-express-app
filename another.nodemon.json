@@ -1,0 +1,10 @@
+{
+  "verbose": false,
+  "watch": ["./dist/another"],
+  "delay": "2000",
+  "execMap": {
+    "js": "node dist/another/index.js"
+  },
+  "ext": "js",
+  "env": { "PORT": 4000, "HOST": "localhost", "TYPE": "dev" }
+}
