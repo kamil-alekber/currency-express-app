@@ -12,7 +12,7 @@ const jwtStrategy = passportJWT.Strategy;
 function cookieExtractor(req: Request) {
   let token = null;
   if (req && req.cookies) {
-    token = req.cookies["jwt"];
+    token = req.cookies["jwt-acc"];
   }
   return token;
 }
@@ -26,7 +26,7 @@ export function passportInit(app: Application) {
 
         if (!user || !bcrypt.compareSync(password, user.password)) {
           return cb(null, false, {
-            message: "incorrect username or password son",
+            message: "incorrect username or password",
           });
         }
 
@@ -34,6 +34,7 @@ export function passportInit(app: Application) {
       }
     )
   );
+
   passport.use(
     new jwtStrategy(
       {

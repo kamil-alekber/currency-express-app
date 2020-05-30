@@ -13,7 +13,10 @@ router.use("/auth", authRoutes);
 // todo profile routes
 router.use(
   "/profile",
-  passport.authenticate("jwt", { session: false }),
+  passport.authenticate("jwt", {
+    session: false,
+    failureRedirect: "/auth/token",
+  }),
   profileRoutes
 );
 export { router as routes };

@@ -4,6 +4,7 @@ import path from "path";
 interface User {
   email: string;
   password: string;
+  tokenVersion: string;
 }
 
 export function getUser(
@@ -14,7 +15,6 @@ export function getUser(
     { flag: "r", encoding: "utf8" }
   );
   const parsedData = JSON.parse(jsonUsers);
-  console.log(parsedData);
   const user: User | undefined = parsedData[0].users.find(
     (user: { email: string; password: string }) => user.email === email
   );

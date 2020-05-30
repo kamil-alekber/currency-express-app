@@ -1,1 +1,114 @@
-{"header":"Официальные (рыночные) курсы валют на 29/05/20","date":"2020-05-29T07:30:59.859Z","length":39,"data":[{"name":"1 АВСТРАЛИЙСКИЙ ДОЛЛАР","relation":"AUD / KZT","value":"272.86"},{"name":"1 АЗЕРБАЙДЖАНСКИЙ МАНАТ","relation":"AZN / KZT","value":"243.68"},{"name":"10 АРМЯНСКИЙ ДРАМ","relation":"AMD / KZT","value":"8.54"},{"name":"1 БЕЛОРУССКИЙ РУБЛЬ","relation":"BYN / KZT","value":"171.18"},{"name":"1 БРАЗИЛЬСКИЙ РЕАЛ","relation":"BRL / KZT","value":"78.22"},{"name":"10 ВЕНГЕРСКИХ ФОРИНТОВ","relation":"HUF / KZT","value":"12.99"},{"name":"1 ГОНКОНГСКИЙ ДОЛЛАР","relation":"HKD / KZT","value":"53.21"},{"name":"1 ГРУЗИНСКИЙ ЛАРИ","relation":"GEL / KZT","value":"130.14"},{"name":"1 ДАТСКАЯ КРОНА","relation":"DKK / KZT","value":"60.93"},{"name":"1 ДИРХАМ ОАЭ","relation":"AED / KZT","value":"112.33"},{"name":"1 ДОЛЛАР США","relation":"USD / KZT","value":"412.55"},{"name":"1 ЕВРО","relation":"EUR / KZT","value":"454.18"},{"name":"1 ИНДИЙСКАЯ РУПИЯ","relation":"INR / KZT","value":"5.44"},{"name":"1000 ИРАНСКИЙ РИАЛ","relation":"IRR / KZT","value":"9.8"},{"name":"1 КАНАДСКИЙ ДОЛЛАР","relation":"CAD / KZT","value":"299.67"},{"name":"1 КИТАЙСКИЙ ЮАНЬ","relation":"CNY / KZT","value":"57.66"},{"name":"1 КУВЕЙТСКИЙ ДИНАР","relation":"KWD / KZT","value":"1337.32"},{"name":"1 КЫРГЫЗСКИЙ СОМ","relation":"KGS / KZT","value":"5.61"},{"name":"1 МАЛАЗИЙСКИЙ РИНГГИТ","relation":"MYR / KZT","value":"94.75"},{"name":"1 МЕКСИКАНСКИЙ ПЕСО","relation":"MXN / KZT","value":"18.45"},{"name":"1 МОЛДАВСКИЙ ЛЕЙ","relation":"MDL / KZT","value":"23.71"},{"name":"1 НОРВЕЖСКАЯ КРОНА","relation":"NOK / KZT","value":"41.72"},{"name":"1 ПОЛЬСКИЙ ЗЛОТЫЙ","relation":"PLN / KZT","value":"102.83"},{"name":"1 РИЯЛ САУДОВСКОЙ АРАВИИ","relation":"SAR / KZT","value":"109.9"},{"name":"1 РОССИЙСКИЙ РУБЛЬ","relation":"RUB / KZT","value":"5.81"},{"name":"1 СДР","relation":"XDR / KZT","value":"563.94"},{"name":"1 СИНГАПУРСКИЙ ДОЛЛАР","relation":"SGD / KZT","value":"290.67"},{"name":"1 ТАДЖИКСКИЙ СОМОНИ","relation":"TJS / KZT","value":"40.25"},{"name":"1 ТАЙСКИЙ БАТ","relation":"THB / KZT","value":"12.96"},{"name":"1 ТУРЕЦКАЯ ЛИРА","relation":"TRY / KZT","value":"60.65"},{"name":"100 УЗБЕКСКИХ СУМОВ","relation":"UZS / KZT","value":"4.08"},{"name":"1 УКРАИНСКАЯ ГРИВНА","relation":"UAH / KZT","value":"15.35"},{"name":"1 ФУНТ СТЕРЛИНГОВ СОЕДИНЕННОГО КОРОЛЕВСТВА","relation":"GBP / KZT","value":"505.62"},{"name":"1 ЧЕШСКАЯ КРОНА","relation":"CZK / KZT","value":"16.83"},{"name":"1 ШВЕДСКАЯ КРОНА","relation":"SEK / KZT","value":"43.01"},{"name":"1 ШВЕЙЦАРСКИЙ ФРАНК","relation":"CHF / KZT","value":"425.75"},{"name":"1 ЮЖНО-АФРИКАНСКИЙ РАНД","relation":"ZAR / KZT","value":"23.65"},{"name":"100 ЮЖНО-КОРЕЙСКИХ ВОН","relation":"KRW / KZT","value":"33.28"},{"name":"1 ЯПОНСКАЯ ЙЕНА","relation":"JPY / KZT","value":"3.83"}]}
+{
+  "header": "Официальные (рыночные) курсы валют на 29/05/20",
+  "date": "2020-05-29T07:30:59.859Z",
+  "length": 39,
+  "data": [
+    {
+      "name": "1 АВСТРАЛИЙСКИЙ ДОЛЛАР",
+      "relation": "AUD / KZT",
+      "value": "272.86"
+    },
+    {
+      "name": "1 АЗЕРБАЙДЖАНСКИЙ МАНАТ",
+      "relation": "AZN / KZT",
+      "value": "243.68"
+    },
+    { "name": "10 АРМЯНСКИЙ ДРАМ", "relation": "AMD / KZT", "value": "8.54" },
+    {
+      "name": "1 БЕЛОРУССКИЙ РУБЛЬ",
+      "relation": "BYN / KZT",
+      "value": "171.18"
+    },
+    { "name": "1 БРАЗИЛЬСКИЙ РЕАЛ", "relation": "BRL / KZT", "value": "78.22" },
+    {
+      "name": "10 ВЕНГЕРСКИХ ФОРИНТОВ",
+      "relation": "HUF / KZT",
+      "value": "12.99"
+    },
+    {
+      "name": "1 ГОНКОНГСКИЙ ДОЛЛАР",
+      "relation": "HKD / KZT",
+      "value": "53.21"
+    },
+    { "name": "1 ГРУЗИНСКИЙ ЛАРИ", "relation": "GEL / KZT", "value": "130.14" },
+    { "name": "1 ДАТСКАЯ КРОНА", "relation": "DKK / KZT", "value": "60.93" },
+    { "name": "1 ДИРХАМ ОАЭ", "relation": "AED / KZT", "value": "112.33" },
+    { "name": "1 ДОЛЛАР США", "relation": "USD / KZT", "value": "412.55" },
+    { "name": "1 ЕВРО", "relation": "EUR / KZT", "value": "454.18" },
+    { "name": "1 ИНДИЙСКАЯ РУПИЯ", "relation": "INR / KZT", "value": "5.44" },
+    { "name": "1000 ИРАНСКИЙ РИАЛ", "relation": "IRR / KZT", "value": "9.8" },
+    {
+      "name": "1 КАНАДСКИЙ ДОЛЛАР",
+      "relation": "CAD / KZT",
+      "value": "299.67"
+    },
+    { "name": "1 КИТАЙСКИЙ ЮАНЬ", "relation": "CNY / KZT", "value": "57.66" },
+    {
+      "name": "1 КУВЕЙТСКИЙ ДИНАР",
+      "relation": "KWD / KZT",
+      "value": "1337.32"
+    },
+    { "name": "1 КЫРГЫЗСКИЙ СОМ", "relation": "KGS / KZT", "value": "5.61" },
+    {
+      "name": "1 МАЛАЗИЙСКИЙ РИНГГИТ",
+      "relation": "MYR / KZT",
+      "value": "94.75"
+    },
+    {
+      "name": "1 МЕКСИКАНСКИЙ ПЕСО",
+      "relation": "MXN / KZT",
+      "value": "18.45"
+    },
+    { "name": "1 МОЛДАВСКИЙ ЛЕЙ", "relation": "MDL / KZT", "value": "23.71" },
+    { "name": "1 НОРВЕЖСКАЯ КРОНА", "relation": "NOK / KZT", "value": "41.72" },
+    { "name": "1 ПОЛЬСКИЙ ЗЛОТЫЙ", "relation": "PLN / KZT", "value": "102.83" },
+    {
+      "name": "1 РИЯЛ САУДОВСКОЙ АРАВИИ",
+      "relation": "SAR / KZT",
+      "value": "109.9"
+    },
+    { "name": "1 РОССИЙСКИЙ РУБЛЬ", "relation": "RUB / KZT", "value": "5.81" },
+    { "name": "1 СДР", "relation": "XDR / KZT", "value": "563.94" },
+    {
+      "name": "1 СИНГАПУРСКИЙ ДОЛЛАР",
+      "relation": "SGD / KZT",
+      "value": "290.67"
+    },
+    {
+      "name": "1 ТАДЖИКСКИЙ СОМОНИ",
+      "relation": "TJS / KZT",
+      "value": "40.25"
+    },
+    { "name": "1 ТАЙСКИЙ БАТ", "relation": "THB / KZT", "value": "12.96" },
+    { "name": "1 ТУРЕЦКАЯ ЛИРА", "relation": "TRY / KZT", "value": "60.65" },
+    { "name": "100 УЗБЕКСКИХ СУМОВ", "relation": "UZS / KZT", "value": "4.08" },
+    {
+      "name": "1 УКРАИНСКАЯ ГРИВНА",
+      "relation": "UAH / KZT",
+      "value": "15.35"
+    },
+    {
+      "name": "1 ФУНТ СТЕРЛИНГОВ СОЕДИНЕННОГО КОРОЛЕВСТВА",
+      "relation": "GBP / KZT",
+      "value": "505.62"
+    },
+    { "name": "1 ЧЕШСКАЯ КРОНА", "relation": "CZK / KZT", "value": "16.83" },
+    { "name": "1 ШВЕДСКАЯ КРОНА", "relation": "SEK / KZT", "value": "43.01" },
+    {
+      "name": "1 ШВЕЙЦАРСКИЙ ФРАНК",
+      "relation": "CHF / KZT",
+      "value": "425.75"
+    },
+    {
+      "name": "1 ЮЖНО-АФРИКАНСКИЙ РАНД",
+      "relation": "ZAR / KZT",
+      "value": "23.65"
+    },
+    {
+      "name": "100 ЮЖНО-КОРЕЙСКИХ ВОН",
+      "relation": "KRW / KZT",
+      "value": "33.28"
+    },
+    { "name": "1 ЯПОНСКАЯ ЙЕНА", "relation": "JPY / KZT", "value": "3.83" }
+  ]
+}
