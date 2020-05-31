@@ -8,6 +8,14 @@
   },
   "ext": "js",
   "env": {
+    "HEADERS": [
+      "Access-Control-Request-Headers",
+      "Access-Control-Request-Method",
+      "Access-Control-Request-Origin",
+      "csrf-token",
+      "Content-Type",
+      "X-Custom-Header"
+    ],
     "PORT": 5000,
     "HOST": "localhost",
     "TYPE": "dev",
