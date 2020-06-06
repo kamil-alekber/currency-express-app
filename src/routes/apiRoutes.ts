@@ -18,7 +18,14 @@ router
       if (varified.client) {
         res.end("post request is restricted for public usage");
       } else {
-        console.warn("\x1b[33m%s\x1b[0m", "[...] Admin", req.body);
+        console.warn(
+          "\x1b[33m%s\x1b[0m",
+          "[^] Admin. Using the following body",
+          req.body
+        );
+        const responseText = "FORM is ok. Data has been processed";
+        console.log("\x1b[32m%s\x1b[0m", "[+] Responce Text", responseText);
+        res.send(responseText);
       }
     } catch (e) {
       console.error(

@@ -7,6 +7,8 @@ import {
   GraphQLObjectType,
   GraphQLNonNull,
 } from "graphql";
+import { PubSub } from "graphql-subscriptions";
+const pubsub = new PubSub();
 
 const books = [
   { name: "Name of the Wind", genre: "Fantasy", id: "1", authorId: "1" },
@@ -133,12 +135,41 @@ const mutation = new GraphQLObjectType({
         return book;
       },
     },
+    addChannel: {
+      type: new GraphQLNonNull(GraphQLString),
+      args: {
+        topicName: { type: new GraphQLNonNull(GraphQLString) },
+      },
+      resolve: (root, args) => {
+        const newTopic = args.topicName;
+        pubsub.publish("new_topic", { newTopic });
+        return newTopic;
+      },
+    },
+  },
+});
+
+const subscription = new GraphQLObjectType({
+  name: "Subscription",
+  fields: {
+    channelAdded: {
+      type: new GraphQLObjectType({
+        name: "ChannelAddedPayload",
+        fields: { newTopic: { type: new GraphQLNonNull(GraphQLString) } },
+      }),
+      subscribe: () => pubsub.asyncIterator("new_topic"),
+      resolve: (payload) => {
+        console.log("\x1b[32m%s\x1b[0m", "[WS] resolving with", payload);
+        return payload;
+      },
+    },
   },
 });
 
 const schema = new GraphQLSchema({
   query,
   mutation,
+  subscription,
 });
 
 export { schema };
