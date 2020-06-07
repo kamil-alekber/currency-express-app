@@ -4,6 +4,7 @@ import { HEROES } from './mock-heroes';
 import { Observable, of } from 'rxjs';
 import { MessageService } from './message.service';
 
+// provided at the "root" level so that it can be injected anywhere in the app.
 @Injectable({
   providedIn: 'root',
 })
