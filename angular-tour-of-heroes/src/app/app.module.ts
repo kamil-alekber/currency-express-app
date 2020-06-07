@@ -7,8 +7,15 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
-  declarations: [AppComponent, HeroesComponent, HeroDetailComponent, MessagesComponent],
+  declarations: [
+    AppComponent,
+    HeroesComponent,
+    HeroDetailComponent,
+    MessagesComponent,
+  ],
   imports: [BrowserModule, FormsModule],
+  // no need to place any providers due to the `providedIn` flag...
+  // injectable services go in this list
   providers: [],
   bootstrap: [AppComponent],
 })
