@@ -1,3 +1,11 @@
 <h1>{{ title }}</h1>
-<app-heroes></app-heroes>
+<nav>
+  <!-- AngularJS directives are extended HTML attributes with the prefix like ng or not  -->
+  <!--  routerLink is a router directive -->
+  <a routerLink="/dashboard">Dashboard</a>
+  <a routerLink="/heroes">Heroes</a>
+</nav>
+
+<!-- router outlet will be replaced with the relevant component. It's a placeholder -->
+<router-outlet></router-outlet>
 <app-messages></app-messages>
