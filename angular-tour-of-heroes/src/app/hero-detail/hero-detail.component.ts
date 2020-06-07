@@ -10,8 +10,9 @@ import { Location } from '@angular/common';
   styleUrls: ['./hero-detail.component.css'],
 })
 export class HeroDetailComponent implements OnInit {
-  // comes from external component
   // property binding syntax
+  // comes from external component and built-in, nothing need to be imported
+  // then anywhere in the .html use: <app-hero-detail [hero]="currentValue"></app-hero-detail>
   @Input() hero: Hero;
   // all of these are services meaning they are singleton. A single class instance is passed to it so it will update the one central place if any change occur
   constructor(
