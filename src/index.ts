@@ -27,14 +27,14 @@ app.use(express.urlencoded({ extended: false }));
 passportInit(app);
 app.use("/public", express.static(path.join(__dirname, "public")));
 app.use(cookieParser());
-app.use(morgan("common"));
+app.use(morgan("combined"));
 
 //HINT: // mount api before csrf to disable scrf
 // app.use('/api', api)
 const PORT = Number(process.env.PORT) || 3000;
 const HOST = process.env.HOST || "localhost";
 const PROTO = process.env.TYPE === "prod" ? "https" : "http";
-// const subscriptionsEndpoint = `ws://localhost:${PORT}/graphql`;
+
 app.use(
   "/graphql",
   (req, res, next) => {

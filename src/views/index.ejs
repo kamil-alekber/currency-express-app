@@ -23,7 +23,10 @@
     <% } else {%>
       <p>consented</p>
     <% }; %>
-    
+      <div><h1>u deserve some files to upload</h1>
+        <form action="/profile" method="post" enctype="multipart/form-data">
+          <input type="file" name="avatar" />
+        </form></div>
     <h1>currency app for your family and friends</h1>
   <form action="/auth/login" method="POST">
     <input type="hidden" name="_csrf" value="<%= csrfToken%>">
