@@ -65,8 +65,20 @@ router
 router.route("/currency").get(async (req, res) => {
   const availableDays = fs.readdirSync(path.resolve(__dirname, "../../data"));
 
+  const todayFile =
+    new Date().toLocaleDateString().replace(/\//g, "-") + ".json";
+
+  const todayFileIndex = availableDays.indexOf(todayFile);
+
   const data = await fs.promises.readFile(
-    path.join(__dirname, `../../data/${availableDays.pop()}`),
+    path.join(
+      __dirname,
+      `../../data/${
+        todayFileIndex > -1
+          ? availableDays[todayFileIndex]
+          : availableDays.pop()
+      }`
+    ),
     { encoding: "utf-8" }
   );
 

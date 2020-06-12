@@ -58,12 +58,12 @@ function iampClient() {
     tls: true,
   });
 
-  function openInbox(cb) {
+  function openInbox(cb: any) {
     imap.openBox("INBOX", true, cb);
   }
 
   imap.once("ready", function () {
-    openInbox(function (err, box) {
+    openInbox(function (err: Error, box: any) {
       if (err) throw err;
 
       const f = imap.seq.fetch("6240:6245", {
@@ -102,7 +102,7 @@ function iampClient() {
     });
   });
 
-  imap.once("error", function (err) {
+  imap.once("error", function (err: Error) {
     console.log(err);
   });
 

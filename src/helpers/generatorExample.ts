@@ -26,7 +26,7 @@ async function* getBooksPaged({ query }: { query: string }) {
   let currentPage = 0;
   console.log("outside while loop");
 
-  while (currentPage < lastPage) {
+  while (currentPage <= lastPage) {
     const pageResults = await getCurrentPageBooks({
       query: query,
       startIndex: currentPage,

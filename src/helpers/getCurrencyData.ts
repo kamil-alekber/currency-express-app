@@ -26,7 +26,7 @@ async function getCurrencyData() {
     const tableRows = tableElement.querySelectorAll("tbody tr");
     const data: CurrencyData[] = [];
 
-    tableRows.forEach((tableRowElement, rowIndex) => {
+    tableRows.forEach((tableRowElement: any, rowIndex: any) => {
       if (
         tableRows.length - 2 === rowIndex ||
         tableRows.length - 1 === rowIndex
@@ -35,7 +35,7 @@ async function getCurrencyData() {
       const tableDataForRow = tableRowElement.querySelectorAll("td");
       const rowData: CurrencyData = {};
 
-      tableDataForRow.forEach((td, index) => {
+      tableDataForRow.forEach((td: any, index: any) => {
         const text = td.innerText;
         if (text) {
           switch (index) {
