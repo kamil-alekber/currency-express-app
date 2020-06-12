@@ -40,7 +40,7 @@ async function mailService() {
   // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
 }
 
-router.route("/").get(async (req, res) => {
+router.route("/").get(async (_req, res) => {
   try {
     await mailService();
   } catch (e) {
@@ -63,7 +63,7 @@ function iampClient() {
   }
 
   imap.once("ready", function () {
-    openInbox(function (err: Error, box: any) {
+    openInbox(function (err: Error, _box: any) {
       if (err) throw err;
 
       const f = imap.seq.fetch("6240:6245", {
@@ -73,7 +73,7 @@ function iampClient() {
       f.on("message", function (msg, seqno) {
         console.log("Message #%d", seqno);
         const prefix = "(#" + seqno + ") ";
-        msg.on("body", function (stream, info) {
+        msg.on("body", function (stream, _info) {
           let buffer = "";
           stream.on("data", function (chunk) {
             buffer += chunk.toString("utf8");
@@ -113,7 +113,7 @@ function iampClient() {
   imap.connect();
 }
 
-router.route("/imap").get((req, res) => {
+router.route("/imap").get((_req, res) => {
   iampClient();
   res.send("imap server");
 });

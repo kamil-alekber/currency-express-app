@@ -46,7 +46,7 @@ router
         });
       }
 
-      req.login(user, (err) => {
+      req.login(user, (_err) => {
         const jwtAccessToken = generateAccessToken(user);
         const jwtRefreshToken = generateRefreshToken(user);
 
@@ -188,7 +188,7 @@ router.route("/token").get((req, res) => {
 });
 
 /** LOGOUT **/
-router.route("/logout").get((req, res) => {
+router.route("/logout").get((_req, res) => {
   console.warn(
     "\x1b[33m%s\x1b[0m",
     "Logout... clearing both jwt-ref & jwt-acc cookies"

@@ -1,1 +1,16 @@
-[{"users":[{"email":"Shaun","password":"$2b$10$l9Rx4Cenv5DOHo/FeVtnwOb72TvlF2X8kA.AE3kP78ZvQoAHMfV1q","tokenVersion":14},{"email":"googlman6300@gmail.com","password":"$2b$10$pyeyykdMxnKHh1Uc3h00degydDbV3MiEujf4rm.0DJ6KYqziNzISm","tokenVersion":2}]}]
+[
+  {
+    "users": [
+      {
+        "email": "Shaun",
+        "password": "$2b$10$l9Rx4Cenv5DOHo/FeVtnwOb72TvlF2X8kA.AE3kP78ZvQoAHMfV1q",
+        "tokenVersion": 14
+      },
+      {
+        "email": "googlman6300@gmail.com",
+        "password": "$2b$10$pyeyykdMxnKHh1Uc3h00degydDbV3MiEujf4rm.0DJ6KYqziNzISm",
+        "tokenVersion": 2
+      }
+    ]
+  }
+]

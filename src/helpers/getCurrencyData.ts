@@ -47,6 +47,7 @@ async function getCurrencyData() {
               break;
             case 3:
               rowData.value = text;
+              break;
             default:
               break;
           }
@@ -80,8 +81,10 @@ const runDataQuery = async () => {
       flag: "w",
       encoding: "utf-8",
     });
+    return "Done";
   } catch (e) {
     console.error(e);
+    return "Something went unexpectedly wrong. Read the output above";
   }
 };
 

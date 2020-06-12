@@ -73,7 +73,7 @@ const query = new GraphQLObjectType({
       args: {
         id: { type: new GraphQLNonNull(GraphQLID) },
       },
-      resolve(parent, args) {
+      resolve(_, args) {
         console.log(typeof args.id);
         return books.find((book) => book.id === args.id);
       },
@@ -83,7 +83,7 @@ const query = new GraphQLObjectType({
       args: {
         id: { type: new GraphQLNonNull(GraphQLID) },
       },
-      resolve(parent, args) {
+      resolve(_, args) {
         return authors.find((author) => author.id === args.id);
       },
     },
@@ -107,7 +107,7 @@ const mutation = new GraphQLObjectType({
         name: { type: new GraphQLNonNull(GraphQLString) },
         age: { type: new GraphQLNonNull(GraphQLInt) },
       },
-      resolve(parent, args) {
+      resolve(_, args) {
         let author = {
           name: args.name,
           age: args.age,
@@ -124,7 +124,7 @@ const mutation = new GraphQLObjectType({
         genre: { type: new GraphQLNonNull(GraphQLString) },
         authorId: { type: new GraphQLNonNull(GraphQLID) },
       },
-      resolve(parent, args) {
+      resolve(_, args) {
         let book = {
           name: args.name,
           genre: args.genre,
@@ -140,7 +140,7 @@ const mutation = new GraphQLObjectType({
       args: {
         topicName: { type: new GraphQLNonNull(GraphQLString) },
       },
-      resolve: (root, args) => {
+      resolve: (_, args) => {
         const newTopic = args.topicName;
         pubsub.publish("new_topic", { newTopic });
         return newTopic;

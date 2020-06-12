@@ -15,7 +15,6 @@ import { altairExpress } from "altair-express-middleware";
 // generate tokem secret with crypto module
 // import crypto from "crypto";
 // const tokenSecret = crypto.randomBytes(64).toString("hex");
-
 const app = express();
 
 app.set("views", path.resolve(__dirname, "views"));
@@ -37,7 +36,7 @@ const PROTO = process.env.TYPE === "prod" ? "https" : "http";
 
 app.use(
   "/graphql",
-  (req, res, next) => {
+  (req, _res, next) => {
     console.log("\x1b[32m%s\x1b[0m", "INCOMING qraphql req =>", req.body);
     next();
   },

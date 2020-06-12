@@ -2,12 +2,13 @@ import { Router } from "express";
 import fs from "fs";
 import path from "path";
 import jwt from "jsonwebtoken";
+import { today } from "../helpers/getCurrencyData";
 
 const router = Router();
 
 router
   .route("/")
-  .post((req, res, next) => {
+  .post((req, res, _next) => {
     try {
       const client = req.cookies.client;
       const varified: any = jwt.verify(
@@ -36,7 +37,7 @@ router
       res.end("post request is restricted for public usage");
     }
   })
-  .delete((req, res) => {
+  .delete((_req, res) => {
     res.json("delete route");
   })
   .get((req, res) => {
@@ -62,12 +63,9 @@ router
     res.redirect("/api");
   });
 
-router.route("/currency").get(async (req, res) => {
+router.route("/currency").get(async (_req, res) => {
   const availableDays = fs.readdirSync(path.resolve(__dirname, "../../data"));
-
-  const todayFile =
-    new Date().toLocaleDateString().replace(/\//g, "-") + ".json";
-
+  const todayFile = today + ".json";
   const todayFileIndex = availableDays.indexOf(todayFile);
 
   const data = await fs.promises.readFile(

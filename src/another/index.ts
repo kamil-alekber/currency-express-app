@@ -6,7 +6,7 @@ const app = express();
 app.set("views", path.resolve(__dirname, "views"));
 app.set("view engine", "ejs");
 
-app.get("/", async (req, res) => {
+app.get("/", async (_req, res) => {
   const data = await request("http://localhost:5000/api", { method: "GET" });
 
   console.log(data);
