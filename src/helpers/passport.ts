@@ -55,4 +55,17 @@ export function passportInit(app: Application) {
   );
 
   app.use(passport.initialize());
+  app.use(passport.session());
+  passport.serializeUser((user: any, done) => {
+    console.log("serializing user", user);
+
+    return done(null, user.email);
+  });
+  passport.deserializeUser((email: string, done) => {
+    console.log("deserializing user");
+    console.log("email", email);
+
+    const [user] = getUser(email);
+    return done(null, user);
+  });
 }

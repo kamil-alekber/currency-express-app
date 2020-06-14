@@ -9,6 +9,9 @@ import {
 } from "graphql";
 import { PubSub } from "graphql-subscriptions";
 const pubsub = new PubSub();
+// import data from "../json/6-12-2020.json";
+
+// console.log("[+] Reading the data from inside TS file", data.length);
 
 const books = [
   { name: "Name of the Wind", genre: "Fantasy", id: "1", authorId: "1" },
@@ -74,7 +77,6 @@ const query = new GraphQLObjectType({
         id: { type: new GraphQLNonNull(GraphQLID) },
       },
       resolve(_, args) {
-        console.log(typeof args.id);
         return books.find((book) => book.id === args.id);
       },
     },

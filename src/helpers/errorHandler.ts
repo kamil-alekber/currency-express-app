@@ -1,6 +1,6 @@
 import { ErrorRequestHandler } from "express";
 
-const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
+const errorHandler: ErrorRequestHandler = (err, req, res, _next) => {
   // handle CSRF token errors here
   if (err.code === "EBADCSRFTOKEN") {
     res.status(403);
@@ -12,8 +12,19 @@ const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
       redirectTime: 5,
       redirectUrl: "http://localhost:5000/",
     });
+  } else if (!res.headersSent) {
+    res.status(err.httpStatusCode || 500);
+    res.render("error", {
+      message: err.message || "",
+      redirectTime: 5,
+      redirectUrl: "http://localhost:5000/",
+    });
   } else {
-    return next(err);
+    res.render("error", {
+      message: err.message || "",
+      redirectTime: 5,
+      redirectUrl: "http://localhost:5000/",
+    });
   }
 };
 export { errorHandler };

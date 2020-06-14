@@ -12,6 +12,10 @@ import { SubscriptionServer } from "subscriptions-transport-ws";
 import { createServer } from "http";
 import { execute, subscribe } from "graphql";
 import { altairExpress } from "altair-express-middleware";
+import session from "express-session";
+import PrepareStore from "session-file-store";
+const FileStore = PrepareStore(session);
+
 // generate tokem secret with crypto module
 // import crypto from "crypto";
 // const tokenSecret = crypto.randomBytes(64).toString("hex");
@@ -23,9 +27,21 @@ app.set("view engine", "ejs");
 app.use(express.json());
 // parses url encoded body when sent from browser
 app.use(express.urlencoded({ extended: false }));
-passportInit(app);
-app.use("/public", express.static(path.join(__dirname, "public")));
 app.use(cookieParser());
+app.use(
+  session({
+    secret: "secret",
+    resave: false,
+    saveUninitialized: false,
+    store: new FileStore(),
+  })
+);
+passportInit(app);
+app.use((req: any, _res, next) => {
+  console.log("after the passport and session", req.user);
+  next();
+});
+app.use("/public", express.static(path.join(__dirname, "public")));
 app.use(morgan("combined"));
 
 //HINT: // mount api before csrf to disable scrf
@@ -43,6 +59,7 @@ app.use(
   graphqlHTTP({
     pretty: true,
     schema,
+    graphiql: true,
   })
 );
 // enable scrf check for all routes and all methods except GET, HEAD, OPTION
@@ -51,9 +68,6 @@ app.use(scrf({ cookie: { httpOnly: true, secure: false, maxAge: 3600 } }));
 // all app routes
 app.use(routes);
 
-// handle errors
-app.use(errorHandler);
-
 app.use(
   "/graphql-altair",
   altairExpress({
@@ -61,7 +75,20 @@ app.use(
     subscriptionsEndpoint: `ws://${HOST}:${PORT}/graphql`,
   })
 );
+app.get("/404", (_req: any, _res: any, next: any) => {
+  next({ httpStatusCode: 404, message: "cannot be found" });
+});
 
+app.get("/problematic", (_req: any, _res: any, next: any) => {
+  next({ httpStatusCode: 403, message: "cannot enter the private party" });
+});
+
+// catch all
+app.use(errorHandler);
+app.get("*", function (_req, res) {
+  res.status(404);
+  res.redirect("/404");
+});
 const server = createServer(app);
 
 server.listen(PORT, HOST, () => {

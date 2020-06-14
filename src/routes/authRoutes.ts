@@ -65,6 +65,24 @@ router
           // 7 days-cookie
           maxAge: 1000 * 60 * 60 * 24 * 7,
         });
+
+        const updatedUser = { ...user, tokenVersion: user.tokenVersion + 1 };
+        const [, data] = getUser(user?.email);
+        // change the map function
+        const newData = [
+          {
+            users: data[0].users.map((item) => {
+              if (item.email === updatedUser.email) return updatedUser;
+              return item;
+            }),
+          },
+        ];
+
+        fs.writeFileSync(
+          path.resolve(__dirname, "../../src/db/users.json"),
+          JSON.stringify(newData),
+          { encoding: "utf8", flag: "w" }
+        );
         res.redirect("/");
       });
     })(req, res);
